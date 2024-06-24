@@ -1,0 +1,289 @@
+.background{
+	position:fixed;
+	background-image: url("../images/back1.jpg"); 
+	background-size: cover;  
+	background-repeat:no-repeat;
+	width: 100%;
+	height: 100vh;
+	top: 0px;
+	left: 0;
+	margin: 0;
+	filter: blur(5px);
+	z-index:-1;
+}
+
+.container{
+	display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.navbar{
+
+	width: 15%;
+	border-right: 1px solid white;
+	
+	
+}
+
+.main{
+	width:85%;
+	
+	
+}
+
+.header{
+	height: 5%;
+	top: 0px;
+	
+}
+
+.antenna{
+	display: flex;
+	position: fixed;
+	height: 30px;
+	margin-left: 0px;
+	width: 100px;
+	justify-content: space-between;
+}
+.image{
+	width: 40px;
+	height: 32px;
+	margin-top: 10px;
+	margin-left: 30px
+}
+.title{
+	color: white;
+	font-size: 32px;
+	margin-top: 8px;
+}
+
+.footer{
+	display: flex;
+	height:10%;
+	width:85%;
+	background-color: rgba(0, 0, 3, 0.5);
+	bottom: 0px;
+	position: fixed;
+	border-top: 1px solid white;
+	margin-left: 290px;
+	
+}
+
+.play {
+    display: flex;
+    align-items: center;
+    transition: transform 0.3s, opacity 0.3s;
+    position: absolute;
+    transform: translateY(-100%);
+    opacity: 0;
+    pointer-events: none;
+    height: 50px;
+    margin-top: -10px;
+}
+
+.play.visible {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+}
+
+
+.controls{
+	display: flex;
+	margin-top: 20px;
+	padding-left: 10px;
+}
+
+.progress-bar{
+	display: flex;
+	margin-top: 3px;
+	color: white;
+	margin-left: 5px;
+	width:85%;
+}
+
+.time{
+	margin-top: 25px;
+}
+
+#seek-bar{
+	width: 1000px;
+	color: red;
+	margin-top: -14px;
+}
+
+input value{
+	color: red;
+}
+.cards{
+	overlay-y: scroll;
+	height: 70vh;
+	margin-left: 30px;
+	width: 97%;
+	margin-top:100px;
+	
+	
+		
+}
+
+.cards1{
+	display: flex;
+	justify-content: space-between;
+}
+
+.card{
+	width: 18%;
+	height: 20vh;
+	border-radius: 8px;
+	cursor: pointer;
+    transition: border 0.3s;
+    padding:20px;
+   
+}
+
+ .card.selected {
+    border: 2px solid white;
+ }
+  
+ 
+.card.selected {
+    border: 2px solid white;
+    background-color: white;
+    z-index: 1;
+    position: relative;
+}
+
+.card.selected::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); 
+    z-index: 1; 
+    pointer-events: none;
+}
+
+button {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+.buttons{
+	
+	margin-top: -10px;
+	width: 150px;
+	display: flex;
+	justify-content: space-between;
+	padding: 10px;
+	
+}
+ .plays {
+            display: flex;
+            padding: 20px;
+            margin-top: -15px;
+        }
+        .plays img {
+            color: red;
+            width: 24px;
+            height: 24px;
+        }
+        .plays p {
+            color: white;
+            margin-top: 4px;
+            font-size: 20px;
+        }
+  .contain{
+  width: 100%;
+  }
+ .header1{
+ width:  500px;
+ display: flex;
+ padding: 50px;
+ }
+ .header1 h1{
+ color:white;
+  margin-top: 18px;
+ }
+ 
+ .white-image{
+ filter: brightness(0) saturate(100%) invert(100%);
+  width: 30px; 
+  height: 30px;
+  margin-top: 20px;
+  padding-right: 10px;
+ }
+ 
+ .main1{
+ width: 90%;
+ margin-left: 95px;
+ display: flex;
+ justify-content: space-between;
+ 
+ }
+ 
+ .container1{
+ display: block; 
+ width: 40%;
+ }
+
+.container1 img{
+	width: 100%;
+	height: 380px; 
+}
+
+.container1 p{
+	color: white;
+	font-size:20px;	
+}
+
+.episodes{
+	width: 48%;
+}
+.episode{
+width: 100%; 
+height: 80px; 
+margin-bottom: 10px; 
+display:flex; 
+justify-content: space-between; 
+}
+
+.episode img{
+	 style="width: 30%; 
+	 height: 80px"
+}
+
+.episode-details{
+	height:80px; 
+	width: 680px; 
+	display: block;
+}
+.episode-details h3{
+	color:white;
+	margin-top:-2px;
+}
+
+.episode-details p{
+	color:gray;
+	margin-top:-10px;
+}
+ 
+ 
+ 
+
+
+
+ 
+       
+
+
+
+
+
+
+
+
