@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+</head>
+<body>
+<div class="background"></div>
+<div class="container">
+    <div class="navbar"></div>
+    <div class="main">
+        <div class="header"></div>
+        <div class="antenna">
+            <img class="image" alt="" src="images/antenna.png">       
+            <h2 class="title">Podcast</h2>
+        </div>
+    <div >
+        <div class="cards" id="cards-container"></div>
+     </div>   
+
+    </div>
+    
+    <div class="footer">
+        <img id="footer-image" src="images/podcast.jpg" alt="" style="width:8%; height: 93%;">
+        <div class="controls">
+            <div class="buttons">
+                <button>
+                    <img alt="" src="images/replay.png" style="width: 30px; height: 30px;">
+                </button>
+                <button>
+                    <img alt="" src="images/pause.png" style="width: 30px; height: 30px;">
+                </button>
+                <button>
+                  <a href="podcast.html"><img alt="" src="images/forward.png" style="width: 30px; height: 30px;"></a>  
+                </button>
+            </div>
+          <div class="progress-container">
+        <div class="time" id="start-time">0:00</div>
+        
+        <div class="progress-bar">
+            <div class="bar" id="progress" data-text="0%"></div>
+        </div>
+        
+        <div class="time" id="end-time">0:00</div>
+    </div>
+
+    <audio id="audio" controls>
+        <source src="audio/Jangu.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+        </div>
+        <div class="info" style="display: flex; margin-top: 47px; color: white; margin-left: 10px; width: 170px; justify-content: space-between;">
+            <div id="episode" class="text-sm text-white">Ep-1</div>
+            <div id="podcast" class="text-sm text-white">BBC Podcasts</div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+const audio = document.getElementById('audio');
+const startTimeEl = document.getElementById('start-time');
+const endTimeEl = document.getElementById('end-time');
+const progressBar = document.getElementById('progress');
+
+audio.addEventListener('loadedmetadata', () => {
+    // Set the end time when metadata is loaded
+    endTimeEl.textContent = formatTime(audio.duration);
+});
+
+audio.addEventListener('timeupdate', () => {
+    // Update the start time and progress bar as the audio plays
+    startTimeEl.textContent = formatTime(audio.currentTime);
+    const progressPercent = (audio.currentTime / audio.duration) * 100;
+    progressBar.style.width = `${progressPercent}%`;
+    progressBar.setAttribute('data-text', `${Math.floor(progressPercent)}%`);
+});
+
+function formatTime(seconds) {
+    const minutes = Math.floor(seconds / 60);
+    const secs = Math.floor(seconds % 60);
+    return `${minutes}:${secs < 10 ? '0' : ''}${secs}`;
+}
+
+</script>
+<script src ="js/script.js"></script>
+</body>
+</html>

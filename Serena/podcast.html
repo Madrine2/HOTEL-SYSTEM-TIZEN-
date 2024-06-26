@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="background"></div>
+    <div class="contain">
+        <div class="header1">
+            <img alt="" src="images/arrow.png" class="white-image">
+            <h1>BBC PODCASTS</h1>
+        </div>
+        <div class="main1">
+            <div class="container1">
+                <img alt="" src="images/podcast.jpg">
+                <p>
+                    Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
+                    The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.
+                </p>
+            </div>
+            <div class="episodes" id="episodes">
+                <!-- Episodes will be dynamically inserted here -->
+            </div>
+        </div>
+        <div class="footer" style="width: 100%; margin-left: -30px;">
+            <img id="footer-image" src="images/podcast.jpg" alt="" style="width:8%; height: 93%;">
+            <div class="controls">
+                <div class="buttons">
+                    <button>
+                        <img alt="" src="images/replay.png" style="width: 30px; height: 30px;">
+                    </button>
+                    <button>
+                        <img alt="" src="images/pause.png" style="width: 30px; height: 30px;">
+                    </button>
+                    <button>
+                        <a href="podcast.html"><img alt="" src="images/forward.png" style="width: 30px; height: 30px;"></a>  
+                    </button>
+                </div>
+                <div class="progress-bar">
+                    <div class="time">0:00</div>
+                    <input id="seek-bar" type="range" value="20px" style="width:1300px;">
+                    <div class="progress-container">
+                        <div class="time">0:00</div>
+                    </div>
+                </div>
+            </div>
+            <div class="info" style="display: flex; margin-top: 47px; color: white; margin-left: 10px; width: 170px; justify-content: space-between;">
+                <div id="episode" class="text-sm text-white">Ep-1</div>
+                <div id="podcast" class="text-sm text-white">BBC Podcasts</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Data for episodes
+        const episodes = [
+            {
+                title: "Episode-1",
+                description: "From the producers of Nuremberg, the story of how in just 13 years, Adolf Hitler led a hinge sect.",
+                date: "15/11/23",
+                duration: "4m 54s",
+                image: "images/podcast.jpg"
+            },
+            {
+                title: "Episode-2",
+                description: "The rise and fall of an empire.",
+                date: "16/11/23",
+                duration: "5m 22s",
+                image: "images/podcast.jpg"
+            },
+            {
+                title: "Episode-3",
+                description: "The secrets of ancient civilizations.",
+                date: "17/11/23",
+                duration: "3m 47s",
+                image: "images/podcast.jpg"
+            },
+            {
+                title: "Episode-4",
+                description: "A deep dive into quantum physics.",
+                date: "18/11/23",
+                duration: "6m 15s",
+                image: "images/podcast.jpg"
+            },
+            {
+                title: "Episode-5",
+                description: "The mysteries of the ocean.",
+                date: "19/11/23",
+                duration: "4m 30s",
+                image: "images/podcast.jpg"
+            },
+            {
+                title: "Episode-6",
+                description: "Exploring the universe.",
+                date: "20/11/23",
+                duration: "7m 45s",
+                image: "images/podcast.jpg"
+            }
+        ];
+
+        // Function to create episode elements
+        function createEpisodeElement(episode) {
+            const episodeDiv = document.createElement("div");
+            episodeDiv.classList.add("episode");
+
+            const img = document.createElement("img");
+            img.src = episode.image;
+            img.alt = "Episode image";
+
+            const detailsDiv = document.createElement("div");
+            detailsDiv.classList.add("episode-details");
+
+            const h3 = document.createElement("h3");
+            h3.textContent = episode.title;
+
+            const p = document.createElement("p");
+            p.textContent = episode.description;
+
+            const dateDiv = document.createElement("div");
+            dateDiv.style.display = "flex";
+            dateDiv.style.marginTop = "-2px";
+            dateDiv.style.width = "200px";
+
+            const dateImg = document.createElement("img");
+            dateImg.src = "images/episode.jpg";
+            dateImg.alt = "Date image";
+            dateImg.style.width = "16px";
+            dateImg.style.height = "13px";
+            dateImg.style.marginTop = "-7px";
+
+            const dateP = document.createElement("p");
+            dateP.textContent = `${episode.date}. ${episode.duration}`;
+            dateP.style.color = "white";
+            dateP.style.marginTop = "-10px";
+
+            dateDiv.appendChild(dateImg);
+            dateDiv.appendChild(dateP);
+
+            detailsDiv.appendChild(h3);
+            detailsDiv.appendChild(p);
+            detailsDiv.appendChild(dateDiv);
+
+            episodeDiv.appendChild(img);
+            episodeDiv.appendChild(detailsDiv);
+
+            return episodeDiv;
+        }
+
+        // Append episodes to the episodes div
+        const episodesContainer = document.getElementById("episodes");
+        episodes.forEach(episode => {
+            const episodeElement = createEpisodeElement(episode);
+            episodesContainer.appendChild(episodeElement);
+        });
+    </script>
+</body>
+</html>
